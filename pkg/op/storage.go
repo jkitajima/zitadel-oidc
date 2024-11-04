@@ -51,7 +51,7 @@ type AuthStorage interface {
 	// tokenOrTokenID will be the refresh token, not its ID.  RevokeToken depends upon GetRefreshTokenInfo
 	// to get information from refresh tokens that are not either "<tokenID>:<userID>" strings
 	// nor JWTs.
-	RevokeToken(ctx context.Context, tokenOrTokenID string, userID string, clientID string) *oidc.Error
+	RevokeToken(ctx context.Context, tokenOrTokenID string, userID string, clientID string) error
 
 	// GetRefreshTokenInfo must return ErrInvalidRefreshToken when presented
 	// with a token that is not a refresh token.

@@ -1,0 +1,20 @@
+name: "Staticcheck"
+
+on:
+  push:
+    branches: [main,next]
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches: [main,next]
+
+jobs:
+  ci:
+    name: "Run CI"
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 1
+    - uses: dominikh/staticcheck-action@v1
+      with:
+        version: "latest"

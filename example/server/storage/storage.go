@@ -362,7 +362,7 @@ func (s *Storage) GetRefreshTokenInfo(ctx context.Context, clientID string, toke
 
 // RevokeToken implements the op.Storage interface
 // it will be called after parsing and validation of the token revocation request
-func (s *Storage) RevokeToken(ctx context.Context, tokenIDOrToken string, userID string, clientID string) *oidc.Error {
+func (s *Storage) RevokeToken(ctx context.Context, tokenIDOrToken string, userID string, clientID string) error {
 	// a single token was requested to be removed
 	s.lock.Lock()
 	defer s.lock.Unlock()
