@@ -235,10 +235,10 @@ func (mr *MockStorageMockRecorder) KeySet(arg0 interface{}) *gomock.Call {
 }
 
 // RevokeToken mocks base method.
-func (m *MockStorage) RevokeToken(arg0 context.Context, arg1, arg2, arg3 string) *oidc.Error {
+func (m *MockStorage) RevokeToken(arg0 context.Context, arg1, arg2, arg3 string) error {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "RevokeToken", arg0, arg1, arg2, arg3)
-	ret0, _ := ret[0].(*oidc.Error)
+	ret0, _ := ret[0].(error)
 	return ret0
 }
 

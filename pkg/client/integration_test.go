@@ -383,7 +383,7 @@ func RunAuthorizationCodeFlow(t *testing.T, opServer *httptest.Server, clientID,
 		t.Log("email", info.Email)
 
 		email = info.Email
-		http.Redirect(w, r, targetURL, 302)
+		http.Redirect(w, r, targetURL, http.StatusFound)
 	}
 	rp.CodeExchangeHandler(rp.UserinfoCallback(redirect), provider, rp.WithURLParam("custom", "param"))(capturedW, get)
 
